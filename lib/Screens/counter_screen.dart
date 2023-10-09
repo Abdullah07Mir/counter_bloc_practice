@@ -13,6 +13,7 @@ class CounterScreen extends StatelessWidget {
       body: Center(
         child: BlocBuilder<CounterBloc, StateCounter>(
           builder: (context, state) {
+            
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -26,13 +27,13 @@ class CounterScreen extends StatelessWidget {
                         ElevatedButton( 
                             onPressed: () {
                               BlocProvider.of<CounterBloc>(context)
-                                  .add(CountDecrement(dcre: CounterState().add));
+                                  .add(CountDecrement(dcre: state.add));
                             },
                             child: Text('Minus')),
                         ElevatedButton(
                             onPressed: () {
                               BlocProvider.of<CounterBloc>(context)
-                                  .add(CounterIncrement(incre: CounterState().add));
+                                  .add(CounterIncrement(incre: state.add));
                             },
                             child: Text('Plus')),
                       ],
@@ -56,7 +57,7 @@ class CounterScreen extends StatelessWidget {
                         ElevatedButton(
                             onPressed: () {
                               BlocProvider.of<CounterBloc>(context)
-                                  .add(Addition(addi: CounterCalState().cal));
+                                  .add(Addition(addi: state.cal));
                             },
                             child: Text('Plus')),
                       ],

@@ -16,8 +16,8 @@ class CounterBloc extends Bloc<CounterEvent, StateCounter> {
       emit(CounterCalState(call: event.increment(state.cal)));
     });
 
-    // on<Subtraction>((event, emit) {
-    //   emit(CounterCalState(cal: Subtraction().decrement(CounterCalState().cal)));
-    // });
+    on<Subtraction>((event, emit) {
+      emit(CounterCalState(call: event.decrement(state.cal)));
+    });
   }
 }
